@@ -8,45 +8,47 @@ Version:	0.12.20
 Release:	4
 License:	GPL
 Group:		Applications/Communications
+Group(de):	Applikationen/Kommunikation
 Group(pl):	Aplikacje/Komunikacja
 Source0:	ftp://tirka.ohse.de/uwe/releases/%{name}-%{version}.tar.gz
-Patch0:		lrzsz-glibc21.patch
-Patch1:		lrzsz-aclocal+DESTDIR.patch
+Patch0:		%{name}-glibc21.patch
+Patch1:		%{name}-aclocal+DESTDIR.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Lrzsz (consisting of lrz and lsz) is a cosmetically modified
-zmodem/ymodem/xmodem package built from the public-domain version of the
-rzsz package. Lrzsz was created to provide a working GNU copylefted Zmodem
-solution for Linux systems. You should install lrzsz if you're also
-installing a Zmodem communications program that uses lrzsz.  If you're
-installing minicom, you need to install lrzsz.
+zmodem/ymodem/xmodem package built from the public-domain version of
+the rzsz package. Lrzsz was created to provide a working GNU
+copylefted Zmodem solution for Linux systems. You should install lrzsz
+if you're also installing a Zmodem communications program that uses
+lrzsz. If you're installing minicom, you need to install lrzsz.
 
 %description -l de
-Diese Sammlung von Befehlen läßt sich zum Herunter- und Aufwärtsladen von
-Dateien anhand der Z-, X- und Y-Protokolle benutzen.  Viele
-Terminalprogramme (wie Minicom) setzen diese Programme für die Übertragung
-von Dateien ein.
+Diese Sammlung von Befehlen läßt sich zum Herunter- und Aufwärtsladen
+von Dateien anhand der Z-, X- und Y-Protokolle benutzen. Viele
+Terminalprogramme (wie Minicom) setzen diese Programme für die
+Übertragung von Dateien ein.
 
 %description -l fr
-Cet ensemble de commande sert à télécharger des fichiers en utilisant les
-protocoles Z, X et Y. De nombreux programmes de terminal (comme minicom)
-utilisent ces programmes pour transférer les fichiers.
+Cet ensemble de commande sert à télécharger des fichiers en utilisant
+les protocoles Z, X et Y. De nombreux programmes de terminal (comme
+minicom) utilisent ces programmes pour transférer les fichiers.
 
 %description -l pl
-Lrzsz (sk³adaj±cy siê z lrz i lsz) jest kosmetycznie poprawionym pakietem
-zmodem/ymodem/xmodem budowanym z wersji public-domain pakietu rzsz. Lrzsz
-zosta³ stworzony ¿eby zapewniæ dzia³aj±c± wersjê GNU implementacji Zmodemu
-dla systemów Linuksowych. Powiniene¶ zainstalowaæ lrzsz je¶li instalujesz
-jakiekolwiek programy do transferów Zmodemowych które u¿ywaj± lrzsz. Je¶li
-instalujesz minicoma - potrzebujesz te¿ lrzsz.
+Lrzsz (sk³adaj±cy siê z lrz i lsz) jest kosmetycznie poprawionym
+pakietem zmodem/ymodem/xmodem budowanym z wersji public-domain pakietu
+rzsz. Lrzsz zosta³ stworzony ¿eby zapewniæ dzia³aj±c± wersjê GNU
+implementacji Zmodemu dla systemów Linuksowych. Powiniene¶
+zainstalowaæ lrzsz je¶li instalujesz jakiekolwiek programy do
+transferów Zmodemowych które u¿ywaj± lrzsz. Je¶li instalujesz minicoma
+- potrzebujesz te¿ lrzsz.
 
 %description -l tr
-Bu komutlar topluluðu Z, X ve Y protokollerini kullanarak dosya aktarýmý
-için kullanýlabilir. Pek çok uç birim programý (örneðin minicom) dosya
-taþýmak için bu programlarý kullanýr.
+Bu komutlar topluluðu Z, X ve Y protokollerini kullanarak dosya
+aktarýmý için kullanýlabilir. Pek çok uç birim programý (örneðin
+minicom) dosya taþýmak için bu programlarý kullanýr.
 
 %prep
 %setup -q
@@ -54,11 +56,11 @@ taþýmak için bu programlarý kullanýr.
 %patch1 -p1
 
 %build
-mv aclocal.m4 acinclude.m4
+mv -f aclocal.m4 acinclude.m4
 aclocal
 autoconf
 autoheader
-automake
+automake -a -c
 %configure
 %{__make}
 
