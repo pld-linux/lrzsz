@@ -93,11 +93,10 @@ zmodem/ymodem/xmodem, побудований з public-domain верс╕╖ пакету rzsz.
 %patch1 -p1
 
 %build
-mv -f aclocal.m4 acinclude.m4
+rm -f missing
 aclocal
 autoconf
-autoheader
-automake -a -c
+automake -a -c -f
 %configure \
 	--enable-syslog \
 	--disable-pubdir \
