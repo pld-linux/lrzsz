@@ -92,9 +92,6 @@ rm -f missing
 	--disable-pubdir \
 	--program-transform-name=s/l//
 
-# dirty workaround for non-working autoheader
-touch config.h.in config.h
-
 %{__make}
 
 %install
