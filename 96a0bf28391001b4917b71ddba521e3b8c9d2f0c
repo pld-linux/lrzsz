@@ -1,0 +1,8 @@
+- completely rewritten in PLD style
+- changed names for not to conflict winth package "sp" (sx->lsx)
+- modified aclocal.m4 and changed to acinclude.m4
+- DESTDIR patch
+- summary/description pl
+- using find_lang
+- adapterized
+- changed URL
