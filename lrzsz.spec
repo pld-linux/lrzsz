@@ -80,8 +80,8 @@ zmodem/ymodem/xmodem, побудований з public-domain верс╕╖ пакету rzsz.
 %build
 rm -f missing
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 %configure \
 	--enable-syslog \
 	--disable-pubdir \
