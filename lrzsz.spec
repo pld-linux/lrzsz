@@ -13,6 +13,7 @@ Release:	13
 License:	GPL
 Group:		Applications/Communications
 Source0:	ftp://tirka.ohse.de/uwe/releases/%{name}-%{version}.tar.gz
+# Source0-md5:	b5ce6a74abc9b9eb2af94dffdfd372a4
 Patch0:		%{name}-glibc21.patch
 Patch1:		%{name}-aclocal+DESTDIR.patch
 Patch2:		%{name}-po.patch
