@@ -59,6 +59,7 @@ aclocal
 autoconf
 autoheader
 automake
+LDFLAGS="-s"; export LDFLAGS
 %configure
 make
 
