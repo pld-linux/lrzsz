@@ -1,0 +1,10 @@
+--- lrzsz-0.12.20/po/de.po~	Sat Sep  6 02:44:46 2003
++++ lrzsz-0.12.20/po/de.po	Sat Sep  6 02:44:46 2003
+@@ -2,7 +2,6 @@
+ # Copyright (C) 1997 Uwe Ohse
+ # Uwe Ohse <uwe@ohse.de>, 1997.
+ #
+-#, fuzzy
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: PACKAGE VERSION\n"
