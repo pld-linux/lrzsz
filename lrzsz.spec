@@ -5,11 +5,24 @@ Summary(pl):	Programy lrz i lsz do transmisji modemowej
 Summary(tr):	Modem protokolleri
 Name:		lrzsz
 Version:	0.12.20
-Release:	4
+Release:	5
 License:	GPL
 Group:		Applications/Communications
+Group(cs):	Aplikace/Komunikace
+Group(da):	Programmer/Kommunikation
 Group(de):	Applikationen/Kommunikation
+Group(es):	Aplicaciones/Comunicaciones
+Group(fr):	Applications/Transmissions
+Group(is):	Forrit/Samskipti
+Group(it):	Applicazioni/Comunicazioni
+Group(ja):	╔╒╔в╔Й╔╠║╪╔╥╔Г╔С/дл©╝
+Group(no):	Applikasjoner/Kommunikasjon
 Group(pl):	Aplikacje/Komunikacja
+Group(pt):	AplicaГУes/ComunicaГУes
+Group(ru):	Приложения/Коммуникации
+Group(sl):	Programi/Komunikacije
+Group(sv):	TillДmpningar/Kommunikation
+Group(uk):	Прикладн╕ Програми/Комун╕кац╕╖
 Source0:	ftp://tirka.ohse.de/uwe/releases/%{name}-%{version}.tar.gz
 Patch0:		%{name}-glibc21.patch
 Patch1:		%{name}-aclocal+DESTDIR.patch
