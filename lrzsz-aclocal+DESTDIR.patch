@@ -59,3 +59,23 @@ diff -Naur lrzsz-0.12.20-old/po/Makefile.in.in lrzsz-0.12.20/po/Makefile.in.in
  	else \
  	  : ; \
  	fi
+diff -Naur lrzsz-0.12.20-old/src/Makefile.am lrzsz-0.12.20/src/Makefile.am
+--- lrzsz-0.12.20-old/src/Makefile.am	Mon Dec 28 09:38:47 1998
++++ lrzsz-0.12.20/src/Makefile.am	Fri Feb 25 18:29:19 2000
+@@ -18,13 +18,13 @@
+ 	rm -f $(DESTDIR)/$(bindir)/`echo lsb | sed -e '$(transform)'`
+ 	ln $(DESTDIR)/$(bindir)/`echo lsz |sed -e '$(transform)'` \
+ 		$(DESTDIR)/$(bindir)/`echo lsb |sed -e '$(transform)'` 
+-	rm -f $(bindir)/`echo lsx | sed -e '$(transform)'`
++	rm -f $(DESTDIR)/$(bindir)/`echo lsx | sed -e '$(transform)'`
+ 	ln $(DESTDIR)/$(bindir)/`echo lsz |sed -e '$(transform)'` \
+ 		$(DESTDIR)/$(bindir)/`echo lsx |sed -e '$(transform)'` 
+-	rm -f $(bindir)/`echo lrb | sed -e '$(transform)'`
++	rm -f $(DESTDIR)/$(bindir)/`echo lrb | sed -e '$(transform)'`
+ 	ln $(DESTDIR)/$(bindir)/`echo lrz |sed -e '$(transform)'` \
+ 		$(DESTDIR)/$(bindir)/`echo lrb |sed -e '$(transform)'` 
+-	rm -f $(bindir)/`echo lrx | sed -e '$(transform)'`
++	rm -f $(DESTDIR)/$(bindir)/`echo lrx | sed -e '$(transform)'`
+ 	ln $(DESTDIR)/$(bindir)/`echo lrz |sed -e '$(transform)'` \
+ 		$(DESTDIR)/$(bindir)/`echo lrx |sed -e '$(transform)'` 
+ #	rm -f $(bindir)/`echo lrzszbug | sed -e '$(transform)'`
