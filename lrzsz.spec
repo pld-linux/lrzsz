@@ -49,7 +49,7 @@ minicom) utilisent ces programmes pour transférer les fichiers.
 Lrzsz (sk³adaj±cy siê z lrz i lsz) jest kosmetycznie poprawionym
 pakietem zmodem/ymodem/xmodem budowanym z wersji public-domain pakietu
 rzsz. Lrzsz zosta³ stworzony ¿eby zapewniæ dzia³aj±c± wersjê GNU
-implementacji Zmodemu dla systemów Linuksowych. Powiniene¶
+implementacji Zmodemu dla systemów linuksowych. Powiniene¶
 zainstalowaæ lrzsz je¶li instalujesz jakiekolwiek programy do
 transferów Zmodemowych które u¿ywaj± lrzsz. Je¶li instalujesz minicoma
 - potrzebujesz te¿ lrzsz.
