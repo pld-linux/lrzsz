@@ -79,7 +79,7 @@ zmodem/ymodem/xmodem, побудований з public-domain верс╕╖ пакету rzsz.
 
 %build
 rm -f missing
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
