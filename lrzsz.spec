@@ -9,7 +9,7 @@ Summary(tr):	Modem protokolleri
 Summary(uk):	lrzsz - програми пересилки файл╕в по модему lrz та lsz
 Name:		lrzsz
 Version:	0.12.21
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		Applications/Communications
 Source0:	%{name}-%{version}.tar.bz2
