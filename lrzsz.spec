@@ -1,11 +1,15 @@
 Summary:	The lrz and lsz modem communications programs
 Summary(de):	lzrz - sz, rz und Co.
+Summary(es):	Lzrz - sz, rz, y amigos
 Summary(fr):	lzrz - sz, rz, et consorts
 Summary(pl):	Programy lrz i lsz do transmisji modemowej
+Summary(pt_BR):	Lzrz - sz, rz, e amigos
+Summary(ru):	lrzsz - программы пересылки файлов по модему lrz и lsz
 Summary(tr):	Modem protokolleri
+Summary(uk):	lrzsz - програми пересилки файл╕в по модему lrz та lsz
 Name:		lrzsz
 Version:	0.12.20
-Release:	5
+Release:	12
 License:	GPL
 Group:		Applications/Communications
 Group(cs):	Aplikace/Komunikace
@@ -44,6 +48,11 @@ von Dateien anhand der Z-, X- und Y-Protokolle benutzen. Viele
 Terminalprogramme (wie Minicom) setzen diese Programme fЭr die
 эbertragung von Dateien ein.
 
+%description -l es
+Esta colecciСn de comandos se pueden usar para bajar y actualizar
+archivos usando los protocolos Z, X y Y. Muchos programas de terminal
+(como el minicom) usan estos programas para transferir archivos.
+
 %description -l fr
 Cet ensemble de commande sert Ю tИlИcharger des fichiers en utilisant
 les protocoles Z, X et Y. De nombreux programmes de terminal (comme
@@ -58,10 +67,25 @@ zainstalowaФ lrzsz je╤li instalujesz jakiekolwiek programy do
 transferСw Zmodemowych ktСre u©ywaj╠ lrzsz. Je╤li instalujesz minicoma
 - potrzebujesz te© lrzsz.
 
+%description -l pt_BR
+Esta coleГЦo de comandos podem ser usados para baixar e atualizar
+arquivos usando os protocolos Z, X e Y. Muitos programas de terminal
+(como o minicom) usam estes programas para transferir arquivos.
+
+%description -l ru
+Lrzsz (состоящий из программ lrz и lsz) - это "косметически"
+модифицированный пакет программ пересылки файлов по протоколам
+zmodem/ymodem/xmodem, построенный из public-domain версии пакета rzsz.
+
 %description -l tr
 Bu komutlar topluluПu Z, X ve Y protokollerini kullanarak dosya
 aktarЩmЩ iГin kullanЩlabilir. Pek Гok uГ birim programЩ (ЖrneПin
 minicom) dosya taЧЩmak iГin bu programlarЩ kullanЩr.
+
+%description -l uk
+Lrzsz (склада╓ться з програм lrz та lsz) - це "косметично"
+модиф╕кований пакет програм пересилки файл╕в по протоколам
+zmodem/ymodem/xmodem, побудований з public-domain верс╕╖ пакету rzsz.
 
 %prep
 %setup -q
@@ -74,7 +98,11 @@ aclocal
 autoconf
 autoheader
 automake -a -c
-%configure
+%configure \
+	--enable-syslog \
+	--disable-pubdir \
+	--program-transform-name=s/l//
+
 %{__make}
 
 %install
