@@ -1,5 +1,5 @@
 Summary:	The lrz and lsz modem communications programs
-Summary(de):	lzrz - sz, rz und Co.
+Summary(de):	lzrz - sz, rz und Co
 Summary(es):	Lzrz - sz, rz, y amigos
 Summary(fr):	lzrz - sz, rz, et consorts
 Summary(pl):	Programy lrz i lsz do transmisji modemowej
