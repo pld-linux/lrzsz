@@ -14,7 +14,7 @@ Patch0:		lrzsz-glibc21.patch
 Patch1:		lrzsz-aclocal+DESTDIR.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Lrzsz (consisting of lrz and lsz) is a cosmetically modified
