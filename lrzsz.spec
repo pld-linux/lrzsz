@@ -16,6 +16,7 @@ Source0:	%{name}-%{version}.tar.bz2
 # Source0-md5:	bbd4f0361378deb3e9094cd0117532e2
 Patch0:		%{name}-glibc21.patch
 Patch1:		%{name}-aclocal+DESTDIR.patch
+Patch2:		%{name}-ac.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -77,10 +78,12 @@ zmodem/ymodem/xmodem, побудований з public-domain верс╕╖ пакету rzsz.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 rm -f missing
 %{__aclocal}
+%{__autoheader}
 %{__autoconf}
 %{__automake}
 %configure \
