@@ -1,36 +1,46 @@
-diff -uNr lrzsz-0.12.20.orig/acinclude.m4 lrzsz-0.12.20/acinclude.m4
---- lrzsz-0.12.20.orig/acinclude.m4	Sun Dec 27 23:08:59 1998
-+++ lrzsz-0.12.20/acinclude.m4	Sat Sep  6 21:14:40 2003
-@@ -1,7 +1,6 @@
- dnl AC_REPLACE_GNU_GETOPT
- AC_DEFUN(AC_REPLACE_GNU_GETOPT,
--[AC_CHECK_FUNC(getopt_long, , [LIBOBJS="$LIBOBJS getopt1.o getopt.o"])
--AC_SUBST(LIBOBJS)dnl
-+[AC_CHECK_FUNC(getopt_long, [], [AC_LIBOBJ([getopt1]); AC_LIBOBJ([getopt])])
- ])
- 
- dnl
-diff -uNr lrzsz-0.12.20.orig/aclocal.m4 lrzsz-0.12.20/aclocal.m4
---- lrzsz-0.12.20.orig/aclocal.m4	Sat Sep  6 21:13:16 2003
-+++ lrzsz-0.12.20/aclocal.m4	Sat Sep  6 21:14:50 2003
-@@ -13,8 +13,7 @@
+--- lrzsz-0.12.21old/aclocal.m4	Sun Aug 22 21:59:08 1999
++++ lrzsz-0.12.21/aclocal.m4	Sun Sep 28 23:29:45 2003
+@@ -12,8 +12,8 @@
  
  dnl AC_REPLACE_GNU_GETOPT
  AC_DEFUN(AC_REPLACE_GNU_GETOPT,
 -[AC_CHECK_FUNC(getopt_long, , [LIBOBJS="$LIBOBJS getopt1.o getopt.o"])
 -AC_SUBST(LIBOBJS)dnl
-+[AC_CHECK_FUNC(getopt_long, [], [AC_LIBOBJ([getopt1]); AC_LIBOBJ([getopt])])
++[AC_CHECK_FUNC(getopt_long, , AC_LIBOBJ([getopt1]))
++AC_CHECK_FUNC(getopt_long, , AC_LIBOBJ([getopt]))
  ])
  
  dnl
---- lrzsz-0.12.20/configure.in~	Sun Sep  7 11:44:27 2003
-+++ lrzsz-0.12.20/configure.in	Sun Sep  7 11:44:27 2003
-@@ -259,7 +259,7 @@
+--- lrzsz-0.12.21old/acinclude.m4	Sun Aug 22 21:59:08 1999
++++ lrzsz-0.12.21/acinclude.m4	Sun Sep 28 23:30:02 2003
+@@ -1,7 +1,7 @@
+ dnl AC_REPLACE_GNU_GETOPT
+ AC_DEFUN(AC_REPLACE_GNU_GETOPT,
+-[AC_CHECK_FUNC(getopt_long, , [LIBOBJS="$LIBOBJS getopt1.o getopt.o"])
+-AC_SUBST(LIBOBJS)dnl
++[AC_CHECK_FUNC(getopt_long, , AC_LIBOBJ([getopt1]))
++AC_CHECK_FUNC(getopt_long, , AC_LIBOBJ([getopt]))
+ ])
+ 
+ dnl
+--- lrzsz-0.12.21old/configure.in	Sun Aug 22 21:59:09 1999
++++ lrzsz-0.12.21/configure.in	Mon Sep 29 03:54:00 2003
+@@ -271,11 +271,13 @@
  
  AM_GNU_GETTEXT
  
 -AC_DEFINE_UNQUOTED(LOCALEDIR,"$prefix/$DATADIRNAME")
-+AC_DEFINE_UNQUOTED(LOCALEDIR,"$prefix/$DATADIRNAME",[Base dir for locale messages])
- AC_LINK_FILES($nls_cv_header_libgt, $nls_cv_header_intl)
++AC_DEFINE_UNQUOTED(LOCALEDIR,"$prefix/$DATADIRNAME","")
+ dnl AC_LINK_FILES($nls_cv_header_libgt, $nls_cv_header_intl)
  
- AC_OUTPUT([Makefile intl/Makefile lib/Makefile testsuite/Makefile \
+-AC_OUTPUT([Makefile intl/Makefile lib/Makefile testsuite/Makefile \
++AC_CONFIG_FILES(Makefile intl/Makefile lib/Makefile testsuite/Makefile \
+ man/Makefile po/Makefile.in src/Makefile Specfile systype \
+-src/lrzszbug],
+-[sed -e "/POTFILES =/r po/POTFILES" po/Makefile.in > po/Makefile; 
+-test -z "$CONFIG_HEADERS" || echo timestamp > stamp-h])
++src/lrzszbug)
++AC_CONFIG_COMMANDS([default], \
++#sed -e "/POTFILES =/r po/POTFILES" po/Makefile.in > po/Makefile; \
++test -z "$CONFIG_HEADERS" || echo timestamp > stamp-h)
++AC_OUTPUT
