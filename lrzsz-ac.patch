@@ -23,3 +23,14 @@ diff -uNr lrzsz-0.12.20.orig/aclocal.m4 lrzsz-0.12.20/aclocal.m4
  ])
  
  dnl
+--- lrzsz-0.12.20/configure.in~	Sun Sep  7 11:44:27 2003
++++ lrzsz-0.12.20/configure.in	Sun Sep  7 11:44:27 2003
+@@ -259,7 +259,7 @@
+ 
+ AM_GNU_GETTEXT
+ 
+-AC_DEFINE_UNQUOTED(LOCALEDIR,"$prefix/$DATADIRNAME")
++AC_DEFINE_UNQUOTED(LOCALEDIR,"$prefix/$DATADIRNAME",[Base dir for locale messages])
+ AC_LINK_FILES($nls_cv_header_libgt, $nls_cv_header_intl)
+ 
+ AC_OUTPUT([Makefile intl/Makefile lib/Makefile testsuite/Makefile \
