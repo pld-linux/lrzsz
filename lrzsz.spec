@@ -59,7 +59,6 @@ aclocal
 autoconf
 autoheader
 automake
-LDFLAGS="-s"; export LDFLAGS
 %configure
 %{__make}
 
@@ -68,8 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
-	AUTHORS COMPATABILITY NEWS README.* THANKS TODO
+gzip -9nf AUTHORS COMPATABILITY NEWS README.* THANKS TODO
 
 %find_lang %{name}
 
@@ -78,6 +76,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
+%doc *.gz
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
-%doc *.gz
