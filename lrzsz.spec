@@ -9,27 +9,13 @@ Summary(tr):	Modem protokolleri
 Summary(uk):	lrzsz - програми пересилки файл╕в по модему lrz та lsz
 Name:		lrzsz
 Version:	0.12.20
-Release:	12
+Release:	13
 License:	GPL
 Group:		Applications/Communications
-Group(cs):	Aplikace/Komunikace
-Group(da):	Programmer/Kommunikation
-Group(de):	Applikationen/Kommunikation
-Group(es):	Aplicaciones/Comunicaciones
-Group(fr):	Applications/Transmissions
-Group(is):	Forrit/Samskipti
-Group(it):	Applicazioni/Comunicazioni
-Group(ja):	╔╒╔в╔Й╔╠║╪╔╥╔Г╔С/дл©╝
-Group(no):	Applikasjoner/Kommunikasjon
-Group(pl):	Aplikacje/Komunikacja
-Group(pt):	AplicaГУes/ComunicaГУes
-Group(ru):	Приложения/Коммуникации
-Group(sl):	Programi/Komunikacije
-Group(sv):	TillДmpningar/Kommunikation
-Group(uk):	Прикладн╕ Програми/Комун╕кац╕╖
 Source0:	ftp://tirka.ohse.de/uwe/releases/%{name}-%{version}.tar.gz
 Patch0:		%{name}-glibc21.patch
 Patch1:		%{name}-aclocal+DESTDIR.patch
+Patch2:		%{name}-po.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -91,12 +77,13 @@ zmodem/ymodem/xmodem, побудований з public-domain верс╕╖ пакету rzsz.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 rm -f missing
-aclocal
-autoconf
-automake -a -c -f
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 %configure \
 	--enable-syslog \
 	--disable-pubdir \
@@ -109,8 +96,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
-gzip -9nf AUTHORS COMPATABILITY NEWS README.* THANKS TODO
-
 %find_lang %{name}
 
 %clean
@@ -118,6 +103,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS COMPATABILITY NEWS README.* THANKS TODO
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
