@@ -16,7 +16,8 @@ Source0:	ftp://tirka.ohse.de/uwe/releases/%{name}-%{version}.tar.gz
 # Source0-md5:	b5ce6a74abc9b9eb2af94dffdfd372a4
 Patch0:		%{name}-glibc21.patch
 Patch1:		%{name}-aclocal+DESTDIR.patch
-Patch2:		%{name}-po.patch
+Patch2:		%{name}-ac.patch
+Patch3:		%{name}-po.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -79,6 +80,7 @@ zmodem/ymodem/xmodem, побудований з public-domain верс╕╖ пакету rzsz.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 rm -f missing
