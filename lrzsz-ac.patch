@@ -1,0 +1,36 @@
+diff -uNr lrzsz-0.12.20.orig/acinclude.m4 lrzsz-0.12.20/acinclude.m4
+--- lrzsz-0.12.20.orig/acinclude.m4	Sun Dec 27 23:08:59 1998
++++ lrzsz-0.12.20/acinclude.m4	Sat Sep  6 21:14:40 2003
+@@ -1,7 +1,6 @@
+ dnl AC_REPLACE_GNU_GETOPT
+ AC_DEFUN(AC_REPLACE_GNU_GETOPT,
+-[AC_CHECK_FUNC(getopt_long, , [LIBOBJS="$LIBOBJS getopt1.o getopt.o"])
+-AC_SUBST(LIBOBJS)dnl
++[AC_CHECK_FUNC(getopt_long, [], [AC_LIBOBJ([getopt1]); AC_LIBOBJ([getopt])])
+ ])
+ 
+ dnl
+diff -uNr lrzsz-0.12.20.orig/aclocal.m4 lrzsz-0.12.20/aclocal.m4
+--- lrzsz-0.12.20.orig/aclocal.m4	Sat Sep  6 21:13:16 2003
++++ lrzsz-0.12.20/aclocal.m4	Sat Sep  6 21:14:50 2003
+@@ -13,8 +13,7 @@
+ 
+ dnl AC_REPLACE_GNU_GETOPT
+ AC_DEFUN(AC_REPLACE_GNU_GETOPT,
+-[AC_CHECK_FUNC(getopt_long, , [LIBOBJS="$LIBOBJS getopt1.o getopt.o"])
+-AC_SUBST(LIBOBJS)dnl
++[AC_CHECK_FUNC(getopt_long, [], [AC_LIBOBJ([getopt1]); AC_LIBOBJ([getopt])])
+ ])
+ 
+ dnl
+--- lrzsz-0.12.20/configure.in~	Sun Sep  7 11:44:27 2003
++++ lrzsz-0.12.20/configure.in	Sun Sep  7 11:44:27 2003
+@@ -259,7 +259,7 @@
+ 
+ AM_GNU_GETTEXT
+ 
+-AC_DEFINE_UNQUOTED(LOCALEDIR,"$prefix/$DATADIRNAME")
++AC_DEFINE_UNQUOTED(LOCALEDIR,"$prefix/$DATADIRNAME",[Base dir for locale messages])
+ AC_LINK_FILES($nls_cv_header_libgt, $nls_cv_header_intl)
+ 
+ AC_OUTPUT([Makefile intl/Makefile lib/Makefile testsuite/Makefile \
