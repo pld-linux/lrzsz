@@ -1,12 +1,12 @@
 Summary:	The lrz and lsz modem communications programs
-Summary(de):	lzrz - sz, rz und Co
-Summary(es):	Lzrz - sz, rz, y amigos
-Summary(fr):	lzrz - sz, rz, et consorts
-Summary(pl):	Programy lrz i lsz do transmisji modemowej
-Summary(pt_BR):	Lzrz - sz, rz, e amigos
-Summary(ru):	lrzsz - программы пересылки файлов по модему lrz и lsz
-Summary(tr):	Modem protokolleri
-Summary(uk):	lrzsz - програми пересилки файл╕в по модему lrz та lsz
+Summary(de.UTF-8):   lzrz - sz, rz und Co
+Summary(es.UTF-8):   Lzrz - sz, rz, y amigos
+Summary(fr.UTF-8):   lzrz - sz, rz, et consorts
+Summary(pl.UTF-8):   Programy lrz i lsz do transmisji modemowej
+Summary(pt_BR.UTF-8):   Lzrz - sz, rz, e amigos
+Summary(ru.UTF-8):   lrzsz - п©я─п╬пЁя─п╟п╪п╪я▀ п©п╣я─п╣я│я▀п╩п╨п╦ я└п╟п╧п╩п╬п╡ п©п╬ п╪п╬п╢п╣п╪я┐ lrz п╦ lsz
+Summary(tr.UTF-8):   Modem protokolleri
+Summary(uk.UTF-8):   lrzsz - п©я─п╬пЁя─п╟п╪п╦ п©п╣я─п╣я│п╦п╩п╨п╦ я└п╟п╧п╩я√п╡ п©п╬ п╪п╬п╢п╣п╪я┐ lrz я┌п╟ lsz
 Name:		lrzsz
 Version:	0.12.21
 Release:	1
@@ -30,50 +30,50 @@ copylefted Zmodem solution for Linux systems. You should install lrzsz
 if you're also installing a Zmodem communications program that uses
 lrzsz. If you're installing minicom, you need to install lrzsz.
 
-%description -l de
-Diese Sammlung von Befehlen lДъt sich zum Herunter- und AufwДrtsladen
+%description -l de.UTF-8
+Diese Sammlung von Befehlen lц╓ц÷t sich zum Herunter- und Aufwц╓rtsladen
 von Dateien anhand der Z-, X- und Y-Protokolle benutzen. Viele
-Terminalprogramme (wie Minicom) setzen diese Programme fЭr die
-эbertragung von Dateien ein.
+Terminalprogramme (wie Minicom) setzen diese Programme fц╪r die
+ц°bertragung von Dateien ein.
 
-%description -l es
-Esta colecciСn de comandos se pueden usar para bajar y actualizar
+%description -l es.UTF-8
+Esta colecciцЁn de comandos se pueden usar para bajar y actualizar
 archivos usando los protocolos Z, X y Y. Muchos programas de terminal
 (como el minicom) usan estos programas para transferir archivos.
 
-%description -l fr
-Cet ensemble de commande sert Ю tИlИcharger des fichiers en utilisant
+%description -l fr.UTF-8
+Cet ensemble de commande sert ц═ tц╘lц╘charger des fichiers en utilisant
 les protocoles Z, X et Y. De nombreux programmes de terminal (comme
-minicom) utilisent ces programmes pour transfИrer les fichiers.
+minicom) utilisent ces programmes pour transfц╘rer les fichiers.
 
-%description -l pl
-Lrzsz (skЁadaj╠cy siЙ z lrz i lsz) jest kosmetycznie poprawionym
+%description -l pl.UTF-8
+Lrzsz (skе┌adajд┘cy siд≥ z lrz i lsz) jest kosmetycznie poprawionym
 pakietem zmodem/ymodem/xmodem budowanym z wersji public-domain pakietu
-rzsz. Lrzsz zostaЁ stworzony ©eby zapewniФ dziaЁaj╠c╠ wersjЙ GNU
-implementacji Zmodemu dla systemСw linuksowych. Powiniene╤
-zainstalowaФ lrzsz je╤li instalujesz jakiekolwiek programy do
-transferСw Zmodemowych ktСre u©ywaj╠ lrzsz. Je╤li instalujesz minicoma
-- potrzebujesz te© lrzsz.
+rzsz. Lrzsz zostaе┌ stworzony е╪eby zapewniд┤ dziaе┌ajд┘cд┘ wersjд≥ GNU
+implementacji Zmodemu dla systemцЁw linuksowych. Powinieneе⌡
+zainstalowaд┤ lrzsz jeе⌡li instalujesz jakiekolwiek programy do
+transferцЁw Zmodemowych ktцЁre uе╪ywajд┘ lrzsz. Jeе⌡li instalujesz minicoma
+- potrzebujesz teе╪ lrzsz.
 
-%description -l pt_BR
-Esta coleГЦo de comandos podem ser usados para baixar e atualizar
+%description -l pt_BR.UTF-8
+Esta coleц╖цёo de comandos podem ser usados para baixar e atualizar
 arquivos usando os protocolos Z, X e Y. Muitos programas de terminal
 (como o minicom) usam estes programas para transferir arquivos.
 
-%description -l ru
-Lrzsz (состоящий из программ lrz и lsz) - это "косметически"
-модифицированный пакет программ пересылки файлов по протоколам
-zmodem/ymodem/xmodem, построенный из public-domain версии пакета rzsz.
+%description -l ru.UTF-8
+Lrzsz (я│п╬я│я┌п╬я▐я┴п╦п╧ п╦п╥ п©я─п╬пЁя─п╟п╪п╪ lrz п╦ lsz) - я█я┌п╬ "п╨п╬я│п╪п╣я┌п╦я┤п╣я│п╨п╦"
+п╪п╬п╢п╦я└п╦я├п╦я─п╬п╡п╟п╫п╫я▀п╧ п©п╟п╨п╣я┌ п©я─п╬пЁя─п╟п╪п╪ п©п╣я─п╣я│я▀п╩п╨п╦ я└п╟п╧п╩п╬п╡ п©п╬ п©я─п╬я┌п╬п╨п╬п╩п╟п╪
+zmodem/ymodem/xmodem, п©п╬я│я┌я─п╬п╣п╫п╫я▀п╧ п╦п╥ public-domain п╡п╣я─я│п╦п╦ п©п╟п╨п╣я┌п╟ rzsz.
 
-%description -l tr
-Bu komutlar topluluПu Z, X ve Y protokollerini kullanarak dosya
-aktarЩmЩ iГin kullanЩlabilir. Pek Гok uГ birim programЩ (ЖrneПin
-minicom) dosya taЧЩmak iГin bu programlarЩ kullanЩr.
+%description -l tr.UTF-8
+Bu komutlar topluluд÷u Z, X ve Y protokollerini kullanarak dosya
+aktarд╠mд╠ iц╖in kullanд╠labilir. Pek ц╖ok uц╖ birim programд╠ (ц╤rneд÷in
+minicom) dosya taе÷д╠mak iц╖in bu programlarд╠ kullanд╠r.
 
-%description -l uk
-Lrzsz (склада╓ться з програм lrz та lsz) - це "косметично"
-модиф╕кований пакет програм пересилки файл╕в по протоколам
-zmodem/ymodem/xmodem, побудований з public-domain верс╕╖ пакету rzsz.
+%description -l uk.UTF-8
+Lrzsz (я│п╨п╩п╟п╢п╟я■я┌я▄я│я▐ п╥ п©я─п╬пЁя─п╟п╪ lrz я┌п╟ lsz) - я├п╣ "п╨п╬я│п╪п╣я┌п╦я┤п╫п╬"
+п╪п╬п╢п╦я└я√п╨п╬п╡п╟п╫п╦п╧ п©п╟п╨п╣я┌ п©я─п╬пЁя─п╟п╪ п©п╣я─п╣я│п╦п╩п╨п╦ я└п╟п╧п╩я√п╡ п©п╬ п©я─п╬я┌п╬п╨п╬п╩п╟п╪
+zmodem/ymodem/xmodem, п©п╬п╠я┐п╢п╬п╡п╟п╫п╦п╧ п╥ public-domain п╡п╣я─я│я√я≈ п©п╟п╨п╣я┌я┐ rzsz.
 
 %prep
 %setup -q
