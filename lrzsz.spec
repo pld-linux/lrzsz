@@ -1,12 +1,12 @@
 Summary:	The lrz and lsz modem communications programs
-Summary(de.UTF-8):   lzrz - sz, rz und Co
-Summary(es.UTF-8):   Lzrz - sz, rz, y amigos
-Summary(fr.UTF-8):   lzrz - sz, rz, et consorts
-Summary(pl.UTF-8):   Programy lrz i lsz do transmisji modemowej
-Summary(pt_BR.UTF-8):   Lzrz - sz, rz, e amigos
-Summary(ru.UTF-8):   lrzsz - программы пересылки файлов по модему lrz и lsz
-Summary(tr.UTF-8):   Modem protokolleri
-Summary(uk.UTF-8):   lrzsz - програми пересилки файлів по модему lrz та lsz
+Summary(de.UTF-8):	lzrz - sz, rz und Co
+Summary(es.UTF-8):	Lzrz - sz, rz, y amigos
+Summary(fr.UTF-8):	lzrz - sz, rz, et consorts
+Summary(pl.UTF-8):	Programy lrz i lsz do transmisji modemowej
+Summary(pt_BR.UTF-8):	Lzrz - sz, rz, e amigos
+Summary(ru.UTF-8):	lrzsz - программы пересылки файлов по модему lrz и lsz
+Summary(tr.UTF-8):	Modem protokolleri
+Summary(uk.UTF-8):	lrzsz - програми пересилки файлів по модему lrz та lsz
 Name:		lrzsz
 Version:	0.12.21
 Release:	1
