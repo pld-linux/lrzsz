@@ -83,6 +83,7 @@ zmodem/ymodem/xmodem, побудований з public-domain версії па�
 
 %build
 rm -f missing
+touch config.rpath
 %{__aclocal}
 %{__autoheader}
 %{__autoconf}
@@ -92,12 +93,12 @@ rm -f missing
 	--disable-pubdir \
 	--program-transform-name=s/l//
 
-%{__make}
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} -j1 install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang %{name}
