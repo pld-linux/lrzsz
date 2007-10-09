@@ -1,0 +1,2 @@
+- added passing LDFLAGS="-s" to ./configure environment for produce on linking
+  stripped binaries.
