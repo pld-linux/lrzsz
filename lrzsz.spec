@@ -84,6 +84,7 @@ zmodem/ymodem/xmodem, побудований з public-domain версії па�
 %build
 rm -f missing
 touch config.rpath
+%{__gettextize}
 %{__aclocal}
 %{__autoheader}
 %{__autoconf}
