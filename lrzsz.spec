@@ -19,7 +19,7 @@ Patch1:		%{name}-aclocal+DESTDIR.patch
 Patch2:		%{name}-ac.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
