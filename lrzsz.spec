@@ -1,4 +1,4 @@
-Summary:	The lrz and lsz modem communications programs
+Summary:	The rz and sz modem communications programs
 Summary(de.UTF-8):	lzrz - sz, rz und Co
 Summary(es.UTF-8):	Lzrz - sz, rz, y amigos
 Summary(fr.UTF-8):	lzrz - sz, rz, et consorts
@@ -9,15 +9,16 @@ Summary(tr.UTF-8):	Modem protokolleri
 Summary(uk.UTF-8):	lrzsz - програми пересилки файлів по модему lrz та lsz
 Name:		lrzsz
 Version:	0.12.21
-Release:	1
-License:	GPL
+Release:	2
+License:	GPL v2+
 Group:		Applications/Communications
 Source0:	%{name}-%{version}.tar.bz2
 # Source0-md5:	bbd4f0361378deb3e9094cd0117532e2
 Patch0:		%{name}-glibc21.patch
 Patch1:		%{name}-aclocal+DESTDIR.patch
 Patch2:		%{name}-ac.patch
-BuildRequires:	autoconf
+URL:		https://ohse.de/uwe/software/lrzsz.html
+BuildRequires:	autoconf >= 2.12
 BuildRequires:	automake
 BuildRequires:	gettext-tools
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -50,10 +51,9 @@ minicom) utilisent ces programmes pour transférer les fichiers.
 Lrzsz (składający się z lrz i lsz) jest kosmetycznie poprawionym
 pakietem zmodem/ymodem/xmodem budowanym z wersji public-domain pakietu
 rzsz. Lrzsz został stworzony żeby zapewnić działającą wersję GNU
-implementacji Zmodemu dla systemów linuksowych. Powinieneś
-zainstalować lrzsz jeśli instalujesz jakiekolwiek programy do
-transferów Zmodemowych które używają lrzsz. Jeśli instalujesz minicoma
-- potrzebujesz też lrzsz.
+implementacji Zmodemu dla systemów linuksowych. Należy zainstalować
+lrzsz przy instalacji jakichkolwiek programów transmisji zmodemowych
+(np. minicom), które używają lrzsz.
 
 %description -l pt_BR.UTF-8
 Esta coleção de comandos podem ser usados para baixar e atualizar
@@ -82,14 +82,13 @@ zmodem/ymodem/xmodem, побудований з public-domain версії па�
 %patch2 -p1
 
 %build
-rm -f missing
-touch config.rpath
 %{__gettextize}
 %{__aclocal}
-%{__autoheader}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
+	ac_cv_lib_nsl_gethostbyname=no \
 	--enable-syslog \
 	--disable-pubdir \
 	--program-transform-name=s/l//
@@ -109,6 +108,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS COMPATABILITY NEWS README.* THANKS TODO
-%attr(755,root,root) %{_bindir}/*
-%{_mandir}/man1/*
+%doc AUTHORS COMPATABILITY ChangeLog NEWS README README.isdn4linux README.systems THANKS TODO
+%attr(755,root,root) %{_bindir}/rb
+%attr(755,root,root) %{_bindir}/rx
+%attr(755,root,root) %{_bindir}/rz
+%attr(755,root,root) %{_bindir}/sb
+%attr(755,root,root) %{_bindir}/sx
+%attr(755,root,root) %{_bindir}/sz
+%{_mandir}/man1/rz.1*
+%{_mandir}/man1/sz.1*
