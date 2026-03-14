@@ -1,6 +1,5 @@
-diff -Naur lrzsz-0.12.20-old/po/Makefile.in.in lrzsz-0.12.20/po/Makefile.in.in
---- lrzsz-0.12.20-old/po/Makefile.in.in	Sun Apr 26 15:22:40 1998
-+++ lrzsz-0.12.20/po/Makefile.in.in	Fri Feb 25 17:08:07 2000
+--- lrzsz-0.12.21-fresh/po/Makefile.in.in	1998-04-26 15:22:40.000000000 +0200
++++ lrzsz-0.12.21-patched/po/Makefile.in.in	2026-03-14 12:25:05.949914622 +0100
 @@ -6,6 +6,8 @@
  # but which still want to provide support for the GNU gettext functionality.
  # Please note that the actual code is *not* freely available.
@@ -30,7 +29,7 @@ diff -Naur lrzsz-0.12.20-old/po/Makefile.in.in lrzsz-0.12.20/po/Makefile.in.in
 +	    *)     destdir=$(DESTDIR)$(localedir);; \
  	  esac; \
  	  lang=`echo $$cat | sed 's/\$(CATOBJEXT)$$//'`; \
- 	  if test -r $(MKINSTALLDIRS); then \
+ 	  dir=$$destdir/$$lang/LC_MESSAGES; \
 @@ -152,12 +154,12 @@
  	done
  	if test "$(PACKAGE)" = "gettext"; then \
@@ -47,9 +46,8 @@ diff -Naur lrzsz-0.12.20-old/po/Makefile.in.in lrzsz-0.12.20/po/Makefile.in.in
  	else \
  	  : ; \
  	fi
-diff -Naur lrzsz-0.12.20-old/src/Makefile.am lrzsz-0.12.20/src/Makefile.am
---- lrzsz-0.12.20-old/src/Makefile.am	Mon Dec 28 09:38:47 1998
-+++ lrzsz-0.12.20/src/Makefile.am	Fri Feb 25 18:29:19 2000
+--- lrzsz-0.12.21-fresh/src/Makefile.am	1998-12-28 09:41:34.000000000 +0100
++++ lrzsz-0.12.21-patched/src/Makefile.am	2026-03-14 12:25:05.950953406 +0100
 @@ -18,13 +18,13 @@
  	rm -f $(DESTDIR)/$(bindir)/`echo lsb | sed -e '$(transform)'`
  	ln $(DESTDIR)/$(bindir)/`echo lsz |sed -e '$(transform)'` \

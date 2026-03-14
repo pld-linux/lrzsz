@@ -1,0 +1,201 @@
+Fix C99/modern compiler compatibility issues.
+Remove K&R function definitions, add missing includes, replace RETSIGTYPE
+with void, remove obsolete STRICT_PROTOTYPES blocks, fix strtol/strerror
+declarations, fix setlocale macro conflict with locale.h, add _GNU_SOURCE
+for vasprintf in lsyslog.c.
+
+--- lrzsz-c99-base/lib/long-options.c	1999-08-22 20:51:21.000000000 +0200
++++ lrzsz-c99-fixed/lib/long-options.c	2026-03-14 12:30:34.059284123 +0100
+@@ -22,6 +22,7 @@
+ #endif
+ 
+ #include <stdio.h>
++#include <stdlib.h>
+ #include <getopt.h>
+ #include "long-options.h"
+ 
+@@ -34,17 +35,9 @@
+ 
+ /* Process long options --help and --version, but only if argc == 2.
+    Be careful not to gobble up `--'.  */
+-#ifdef __cplusplus
+-void parse_long_options (int argc, char **argv,
+-	void (*version)(void), void (*usage)(int))
+-#else
+ void
+-parse_long_options (argc, argv,version, usage)
+-     int argc;
+-     char **argv;
+-     void (*version)();
+-     void (*usage)();
+-#endif
++parse_long_options (int argc, char **argv,
++	void (*version)(void), void (*usage)(int))
+ {
+   int c;
+   int saved_opterr;
+--- lrzsz-c99-base/lib/xstrtol.c	1999-08-22 20:51:21.000000000 +0200
++++ lrzsz-c99-fixed/lib/xstrtol.c	2026-03-14 12:31:32.778485320 +0100
+@@ -65,22 +65,12 @@
+ 	}								\
+       while (0)
+ 
+-__unsigned long int __strtol ();
+ 
+ /* FIXME: comment.  */
+ 
+ strtol_error
+-#ifdef __cplusplus
+ __xstrtol (const char *s, char **ptr, int base, 
+ 		__unsigned long int *val, const char *valid_suffixes)
+-#else
+-__xstrtol (s, ptr, base, val, valid_suffixes)
+-     const char *s;
+-     char **ptr;
+-     int base;
+-     __unsigned long int *val;
+-     const char *valid_suffixes;
+-#endif
+ {
+   char *t_ptr;
+   char **p;
+--- lrzsz-c99-base/lib/error.c	1999-08-22 20:51:21.000000000 +0200
++++ lrzsz-c99-fixed/lib/error.c	2026-03-14 12:31:48.537610111 +0100
+@@ -71,24 +71,7 @@
+    name of the executing program.  */
+ extern char *program_name;
+ 
+-# if HAVE_STRERROR
+-#  ifndef strerror		/* On some systems, strerror is a macro */
+-char *strerror ();
+-#  endif
+-# else
+-static char *
+-private_strerror (errnum)
+-     int errnum;
+-{
+-  extern char *sys_errlist[];
+-  extern int sys_nerr;
+-
+-  if (errnum > 0 && errnum <= sys_nerr)
+-    return sys_errlist[errnum];
+-  return _("Unknown system error");
+-}
+-#  define strerror private_strerror
+-# endif	/* HAVE_STRERROR */
++# include <string.h>
+ #endif	/* _LIBC */
+ 
+ /* Print the program name and error message MESSAGE, which is a printf-style
+--- lrzsz-c99-base/src/lrz.c	2026-03-14 12:30:18.240052059 +0100
++++ lrzsz-c99-fixed/src/lrz.c	2026-03-14 12:30:34.059664984 +0100
+@@ -41,10 +41,6 @@
+ #include "xstrtoul.h"
+ #include "error.h"
+ 
+-#ifndef STRICT_PROTOTYPES
+-extern time_t time();
+-extern char *strerror();
+-#endif
+ 
+ #ifndef HAVE_ERRNO_DECLARATION
+ extern int errno;
+@@ -185,7 +181,7 @@
+ 
+ 
+ /* called by signal interrupt or terminate to clean things up */
+-RETSIGTYPE
++void
+ bibi(int n)
+ {
+ 	if (zmodem_requested)
+--- lrzsz-c99-base/src/lsz.c	2026-03-14 12:30:18.239729378 +0100
++++ lrzsz-c99-fixed/src/lsz.c	2026-03-14 12:30:34.059484268 +0100
+@@ -50,10 +50,6 @@
+ #include "xstrtoul.h"
+ #include "error.h"
+ 
+-#ifndef STRICT_PROTOTYPES
+-extern time_t time();
+-extern char *strerror();
+-#endif
+ 
+ #ifndef HAVE_ERRNO_DECLARATION
+ extern int errno;
+@@ -217,7 +213,7 @@
+ static int play_with_sigint=0;
+ 
+ /* called by signal interrupt or terminate to clean things up */
+-RETSIGTYPE
++void
+ bibi (int n)
+ {
+ 	canit(STDOUT_FILENO);
+@@ -233,7 +229,7 @@
+ }
+ 
+ /* Called when ZMODEM gets an interrupt (^C) */
+-static RETSIGTYPE
++static void
+ onintr(int n)
+ {
+ 	signal(SIGINT, SIG_IGN);
+--- lrzsz-c99-base/src/zreadline.c	1999-08-22 20:51:21.000000000 +0200
++++ lrzsz-c99-fixed/src/zreadline.c	2026-03-14 12:30:34.059773892 +0100
+@@ -43,7 +43,7 @@
+ int readline_left=0;
+ char *readline_ptr;
+ 
+-static RETSIGTYPE
++static void
+ zreadline_alarm_handler(int dummy)
+ {
+ 	dummy++; /* doesn't need to do anything */
+--- lrzsz-c99-base/src/zglobal.h	1998-12-29 13:58:37.000000000 +0100
++++ lrzsz-c99-fixed/src/zglobal.h	2026-03-14 12:33:12.514619913 +0100
+@@ -177,12 +177,7 @@
+ 
+ 
+ /* Take care of NLS matters.  */
+-#if HAVE_LOCALE_H
+-# include <locale.h>
+-#endif
+-#if !HAVE_SETLOCALE
+-# define setlocale(Category, Locale) /* empty */
+-#endif
++#include <locale.h>
+ 
+ #if ENABLE_NLS
+ # include <libintl.h>
+@@ -360,7 +355,7 @@
+ extern int Zctlesc;    /* Encode control characters */
+ extern int under_rsh;
+ 
+-RETSIGTYPE bibi __P ((int n));
++void bibi (int n);
+ 
+ #define sendline(c) putchar((c) & 0377)
+ #define xsendline(c) putchar(c)
+--- lrzsz-c99-base/src/lsyslog.c	1998-12-29 18:27:55.000000000 +0100
++++ lrzsz-c99-fixed/src/lsyslog.c	2026-03-14 12:30:34.059921829 +0100
+@@ -18,7 +18,9 @@
+   02111-1307, USA.
+ 
+ */
++#define _GNU_SOURCE
+ #include "config.h"
++#include <stdio.h>
+ #ifdef ENABLE_SYSLOG
+ #include "zglobal.h"
+ #include <pwd.h>
+--- lrzsz-c99-base/src/tcp.c	1999-08-22 20:51:21.000000000 +0200
++++ lrzsz-c99-fixed/src/tcp.c	2026-03-14 12:30:34.059994435 +0100
+@@ -38,7 +38,7 @@
+ #include <stdlib.h>
+ #include "error.h"
+ 
+-static RETSIGTYPE
++static void
+ tcp_alarm_handler(int dummy)
+ {
+ 	dummy++; /* doesn't need to do anything */

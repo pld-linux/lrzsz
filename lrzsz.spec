@@ -9,7 +9,7 @@ Summary(tr.UTF-8):	Modem protokolleri
 Summary(uk.UTF-8):	lrzsz - програми пересилки файлів по модему lrz та lsz
 Name:		lrzsz
 Version:	0.12.21
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Applications/Communications
 Source0:	%{name}-%{version}.tar.bz2
@@ -17,6 +17,8 @@ Source0:	%{name}-%{version}.tar.bz2
 Patch0:		%{name}-glibc21.patch
 Patch1:		%{name}-aclocal+DESTDIR.patch
 Patch2:		%{name}-ac.patch
+Patch3:		%{name}-CVE-2018-10195.patch
+Patch4:		%{name}-c99.patch
 URL:		https://ohse.de/uwe/software/lrzsz.html
 BuildRequires:	autoconf >= 2.12
 BuildRequires:	automake
@@ -80,10 +82,13 @@ zmodem/ymodem/xmodem, побудований з public-domain версії па�
 %patch -P0 -p1
 %patch -P1 -p1
 %patch -P2 -p1
+%patch -P3 -p1
+%patch -P4 -p1
 
 %build
 %{__gettextize}
-%{__aclocal}
+echo de > po/LINGUAS
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
